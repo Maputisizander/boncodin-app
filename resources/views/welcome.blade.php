@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <nav></nav>
     <h1 style= "font-family = Kimbab;">Welcome to Boncodin-app</h1>
 </body>
 </html>
