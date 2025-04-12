@@ -7,13 +7,20 @@ use App\Http\Controllers\UserController;
 use App\Services\ProductService;
 use App\Http\Controllers\ProductController;
 
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/', function () {
+    // return "test";
+    return view('welcome', ['name' => 'boncodin-app']);
 });
+Route::get('/users', [UserController::Class, 'index']);
+Route::resource('/products', ProductController::Class);
 
-Route::get('/tit', function () {
-    return view('boncodinact4');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/tit', function () {
+//     return view('boncodinact4');
+// });
 
 Route::get('/test-container', function (Request $request) {
     $input = $request->input('key');
@@ -84,9 +91,9 @@ Route::post('/token', function(Request $request) {
 });
 
 
-Route::get('/users', [UserController::Class, 'index'])->middleware('user-middleware');
+// Route::get('/users', [UserController::Class, 'index'])->middleware('user-middleware');
 
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 
 Route::get('/product-list', function(ProductService $productService){
     $data['products'] = $productService->listProducts();
